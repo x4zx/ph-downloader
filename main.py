@@ -1,5 +1,5 @@
 import sys
-from core.downloader import download
+from core import download
 
 
 def main():

@@ -1,5 +1,5 @@
 import yt_dlp
-from core.checker import (
+from core import (
     is_link, ph_url_check, ph_page_check
 )
 
