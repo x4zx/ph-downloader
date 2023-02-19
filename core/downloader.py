@@ -1,8 +1,9 @@
 import yt_dlp
+import asyncio
 from colorama import Fore, Style
 from core import is_link, ph_url_check, ph_page_check
 
-def download(url: str):
+async def download(url: str):
     is_link(url)
     ph_url_check(url)
     ph_page_check(url)
@@ -26,3 +27,5 @@ def download(url: str):
         except yt_dlp.DownloadError:
             print(Fore.RED + '!!!: ' + Style.RESET_ALL + \
                 'The video could not be downloaded correctly. Try again!')
+
+            await asyncio.sleep(10)
