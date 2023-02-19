@@ -1,8 +1,6 @@
 import yt_dlp
-from core import (
-    is_link, ph_url_check, ph_page_check
-)
-
+from colorama import Fore, Style
+from core import is_link, ph_url_check, ph_page_check
 
 def download(url: str):
     is_link(url)
@@ -18,7 +16,13 @@ def download(url: str):
         'outtmpl': outtmpl,
         'format': 'best',
         'playlistreverse': True,
+        'skip_unavailable_fragments': False,
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        ydl.download([url])
+        try:
+            ydl.download([url])
+
+        except yt_dlp.DownloadError:
+            print(Fore.RED + '!!!: ' + Style.RESET_ALL + \
+                'The video could not be downloaded correctly. Try again!')

@@ -3,7 +3,6 @@ import sys
 import requests
 from urllib import parse
 
-
 def is_link(url: str):
     if re.compile(r'https?://(?:www\.)?.+').match(url):
         print('This is a link.')

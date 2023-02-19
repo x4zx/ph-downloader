@@ -1,7 +1,6 @@
 import sys
 from core import download
 
-
 def main():
 
     value = input('Enter video/playlist link: ')
@@ -10,7 +9,6 @@ def main():
     
     else:
         download(value)
-
 
 if __name__ ==  '__main__':
     main()
